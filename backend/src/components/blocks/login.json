@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_blocks_logins",
+  "info": {
+    "displayName": "login"
+  },
+  "options": {},
+  "attributes": {
+    "username": {
+      "type": "string"
+    },
+    "password": {
+      "type": "password"
+    },
+    "email": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
