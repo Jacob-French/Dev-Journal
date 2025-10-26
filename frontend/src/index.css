@@ -1,6 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=League+Spartan:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300..700&display=swap');
+
 @import "tailwindcss";
 
-body{
-  background-color: black;
-  color: rgb(156, 156, 156);
+html, body{
+  height: 100%;
+}
+
+@theme{
+  --font-exo-2: "Exo 2", sans-serif;
+  --font-league-spartan: "League Spartan", sans-serif;
+  --font-space-grotesk: "Space Grotesk", sans-serif;
+
+  --color-space-50: oklch(0.1 0 0);
+  --color-space-100: oklch(0.2 0 0);
+  --color-space-200: oklch(0.22 0 0);
+  --color-space-300: oklch(0.29 0 0);
+  --color-space-400: oklch(0.33 0 0);
+  --color-space-500: oklch(0.39 0 0);
+  --color-space-800: oklch(0.84 0 0);
+  --color-space-900: oklch(0.95 0 0);
 }

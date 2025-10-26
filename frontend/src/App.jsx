@@ -1,32 +1,36 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios';
+
 import './App.css'
 import useAxios from './hooks/useAxios';
+import { useApi } from './context/ApiContext';
+import Headbar from './components/layout/Headbar';
+import TailwindPlanner from './components/TailwindPlanner';
+import { Routes } from 'react-router';
 
 function App() {
-  const { request, loading, error, cancel } = useAxios();
 
-  const getPages = async function(){
-    const url = "http://localhost:1337/api/pages"
-    const result = await request(url, {method: 'GET'})
-    if(result){
-      return result.data
-    }
-    else{
-      return null
-    }
-  }
+  const api = useApi()
+
+  const [pages, setPages] = useState([])
 
   useEffect(() => {
-    getPages().then((pages) => {
-      pages && console.log("pages: ", pages)
+    api.getPages().then((response) => {
+      setPages(response)
     })
   }, [])
 
   return (
-    <>
-      <h1>start here</h1>
-    </>
+    <div className="bg-space-100 h-screen">
+      {false && <Headbar pages={pages} />}
+      {false && <TailwindPlanner></TailwindPlanner>}
+
+      <Headbar pages={pages} />
+
+      <Routes>
+
+      </Routes>
+    </div>
   )
 }
 
