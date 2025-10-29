@@ -1,0 +1,24 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "A development journal for note taking and documenting my journey.",
+  "homepage": "https://github.com/Jacob-French/Dev-Journal#readme",
+  "bugs": {
+    "url": "https://github.com/Jacob-French/Dev-Journal/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jacob-French/Dev-Journal.git"
+  },
+  "license": "ISC",
+  "author": "Jacob French",
+  "type": "commonjs",
+  "main": "y",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"npm run develop --prefix ./backend\" \"npm run dev --prefix ./frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

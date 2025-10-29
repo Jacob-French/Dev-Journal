@@ -2,6 +2,12 @@
 
 @import "tailwindcss";
 
+:root {
+  --sd-gap-small: calc(var(--spacing) * 2);
+  --sd-gap-mid: calc(var(--spacing) * 5);
+}
+
+
 html, body{
   height: 100%;
 }
@@ -12,11 +18,12 @@ html, body{
   --font-space-grotesk: "Space Grotesk", sans-serif;
 
   --color-space-50: oklch(0.1 0 0);
-  --color-space-100: oklch(0.2 0 0);
-  --color-space-200: oklch(0.22 0 0);
-  --color-space-300: oklch(0.29 0 0);
-  --color-space-400: oklch(0.33 0 0);
-  --color-space-500: oklch(0.39 0 0);
-  --color-space-800: oklch(0.84 0 0);
-  --color-space-900: oklch(0.95 0 0);
+  --color-space-100: oklch(0.2 0 0);  /* page background */
+  --color-space-200: oklch(0.22 0 0); /* panel background */
+  --color-space-300: oklch(0.29 0 0); /* bold panel background or panel border */
+  --color-space-400: oklch(0.33 0 0); /* bold panel border */
+  --color-space-500: oklch(0.39 0 0); /* highlighted panel */
+  --color-space-600: oklch(0.62 0 0); /* soft text */
+  --color-space-800: oklch(0.84 0 0); /* mid text */
+  --color-space-900: oklch(0.95 0 0); /* bright text */
 }

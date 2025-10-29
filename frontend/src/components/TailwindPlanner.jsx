@@ -4,7 +4,7 @@ export default function TailwindPlanner(){
 
   return(
     <>
-    <div className="flex flex-row justify-evenly">
+    <div className="flex flex-row justify-evenly text-space-800">
       <div className="flex flex-col items-center mt-10">
         <h1 className="font-[Montserrat] text-lg font-normal">The quick brown fox</h1>
         <h1 className="font-[Lato] text-lg font-normal">The quick brown fox</h1>

@@ -10,14 +10,5 @@
     "draftAndPublish": true
   },
   "pluginOptions": {},
-  "attributes": {
-    "content": {
-      "type": "dynamiczone",
-      "components": [
-        "blocks.paragraph",
-        "blocks.login",
-        "blocks.event"
-      ]
-    }
-  }
+  "attributes": {}
 }
