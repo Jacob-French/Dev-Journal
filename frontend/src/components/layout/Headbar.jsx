@@ -38,7 +38,7 @@ export default function Headbar({ pages }){
       </div>
       {
         mobileMenu && <nav className={`
-          flex flex-col items-end justify-start p-7 gap-[var(--sd-gap-small)]
+          flex flex-col items-end justify-start p-7 gap-[var(--sd-gap-small)] z-1000
           border border-space-300 rounded-md fixed right-[var(--sd-gap-mid)] mt-[var(--sd-gap-mid)] bg-space-200
           md:hidden  
         `}>

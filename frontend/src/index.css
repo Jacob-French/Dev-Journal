@@ -26,4 +26,6 @@ html, body{
   --color-space-600: oklch(0.62 0 0); /* soft text */
   --color-space-800: oklch(0.84 0 0); /* mid text */
   --color-space-900: oklch(0.95 0 0); /* bright text */
+
+  --color-theme-100: oklch(0.6672 0.1802 1.69);
 }

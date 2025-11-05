@@ -1,3 +1,5 @@
+import { NavLink } from "react-router";
+
 export default function TopicNav({ headings }){
   return (
     <div className="w-50 bg-space-200 border-r border-space-300 p-[var(--sd-gap-mid)]">
@@ -9,13 +11,21 @@ export default function TopicNav({ headings }){
             </div> : null}
           {heading.type === 'family' ?
             <h2 className="font-league-spartan uppercase text-xs text-space-600">{heading.content}</h2> : 
-            <h3 className={`
-              font-[Poppins] text-space-800 text-sm
-              border border-transparent px-2 py-1 my-1 rounded-xl box-content cursor-pointer
-              hover:border hover:border-space-400 hover:bg-space-300 hover: shadow-md
-            `}>{heading.content.title}</h3>
+            <NavLink className={({isActive}) => isActive ? "group active" : "group"} to={`/journal${heading.content.route}`}>
+              <div className="flex flex-row justify-start items-center">
+                <h3 
+                  className={`
+                  font-[Poppins] text-space-800 text-sm
+                  border border-transparent px-2 py-1 my-1 rounded-xl box-content cursor-pointer
+                  hover:border hover:border-space-400 hover:bg-space-300 hover:shadow-md group-[.active]:text-space-900
+                  `}>{heading.content.title}
+                </h3>
+                <span className={`
+                  font-[Poppins] text-md text-[var(--color-theme-100)] ml-auto hidden group-[.active]:inline
+                `}>&gt;</span>
+              </div>
+            </NavLink>
           }
-          <h2>{heading.title}</h2>
         </div>
       ))}
     </div>

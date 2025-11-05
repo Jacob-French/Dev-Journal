@@ -33,7 +33,7 @@ function App() {
       <div className="border-pink-400 flex-1">
         <Routes>
           <Route path="/journal" element={<TopicManager topics={topics}/>} />
-          <Route path="/journal/:topic" element={<TopicExplorer />} /> 
+          <Route path="/journal/:topic/*" element={<TopicExplorer />} /> 
           <Route path="/design-planner" element={<TailwindPlanner />} />
         </Routes>
       </div>

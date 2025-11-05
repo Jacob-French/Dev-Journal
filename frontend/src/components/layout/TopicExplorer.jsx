@@ -1,10 +1,17 @@
+//Once the user selects a topic, the TopicExplorer navigates that topic
+
 import { useParams } from "react-router"
 import TopicNav from "./TopicNav"
 import { useApi } from "../../context/ApiContext"
 import { useEffect, useState } from "react"
+import { useCheckMobileScreen } from "../../context/ScreenSizeContext"
+import TopicNavMobile from "./TopicNavMobile"
+import Explorer from "../functional/Explorer"
 
 export default function TopicExplorer(){
   
+  const screen = useCheckMobileScreen()
+
   const api = useApi()
   const { topic } = useParams()
 
@@ -36,8 +43,11 @@ export default function TopicExplorer(){
   }, [topic])
   
   return (
-    <div className="text-space-600 border-fuchsia-400 h-full flex flex-row justify-start">
-      <TopicNav headings={headingsAndFamilies} />
+    <div className="text-space-600 border-fuchsia-400 h-full">
+      {/*  ! screen &&  <TopicNav headings={headingsAndFamilies} /> */}
+      {/* screen && <TopicNavMobile /> */}
+
+      <Explorer></Explorer>
     </div>
   )
 }

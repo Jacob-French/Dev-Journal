@@ -6,10 +6,11 @@ const JOURNAL_ROUTE = '/journal'
 export function JaLink({ children, to }){
   return (
     <div className="hover:-translate-y-1 transition-transform ease-in duration-300">
-      <NavLink to={to}>
-        <span className={`
-          font-[Poppins] text-md text-gray-100 font-light cursor-pointer
-        `}>{children}</span>
+      <NavLink className={({isActive}) => isActive ? 
+        "font-[Poppins] text-md text-[var(--color-theme-100)] font-light cursor-pointer" : 
+        "font-[Poppins] text-md text-gray-100 font-light cursor-pointer"
+      } to={to}>
+        {children}
       </NavLink>
     </div>
   )

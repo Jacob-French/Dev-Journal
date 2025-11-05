@@ -4,11 +4,14 @@ import './index.css'
 import App from './App.jsx'
 import { ApiProvider } from './context/ApiContext.jsx'
 import { BrowserRouter } from "react-router";
+import { ScreenSizeProvider } from './context/ScreenSizeContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <ApiProvider>
-      <App />
+      <ScreenSizeProvider>
+        <App />
+      </ScreenSizeProvider>
     </ApiProvider>
   </BrowserRouter>
 )

@@ -1,3 +1,5 @@
+//Component that lists all topics for the user to browse
+
 import { Topic } from "../items/BaseItems"
 
 export default function TopicManager({ topics }){
