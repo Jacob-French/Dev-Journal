@@ -10,16 +10,24 @@
   (1) - items
     A list of headings or families to populate the navigation panel. It is structured as a list of objects like so: 
     {type: <heading / family>, content: <object representing heading or family>}
-  (2) - isMobile
+  (2) - route
+    The route for the navigation links to use. eg, if you pass it '/react' and a heading has the route 'components' thent he link for that heading will route to /react/components
+  (3) - isMobile
     Tells the component to use desktop or mobile layout.
-  (3) - children
+  (4) - children
     The children of this component should be the content. This is so the content can be placed next to the nav bar for wide screens or behind the nav bar for narower mobile screens. The content will use routing to match up with the selected heading. 
 */
 
+import ItemNav from "./ItemNav";
+import ItemNavMobile from "./ItemNavMobile";
+
+
 export default function Explorer({ items, isMobile, children }){
+
   return (
     <div className="border border-pink-300 w-full h-full">
-
+      {! isMobile && Array.isArray(items) && <ItemNav items={items}>{children}</ItemNav>}
+      {isMobile && Array.isArray(items) && <ItemNavMobile>{children}</ItemNavMobile>}
     </div>
   )
 }

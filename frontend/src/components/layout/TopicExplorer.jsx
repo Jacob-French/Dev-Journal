@@ -1,12 +1,12 @@
 //Once the user selects a topic, the TopicExplorer navigates that topic
 
 import { useParams } from "react-router"
-import TopicNav from "./TopicNav"
+import TopicNav from "../functional/explorer/ItemNav"
 import { useApi } from "../../context/ApiContext"
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { useCheckMobileScreen } from "../../context/ScreenSizeContext"
-import TopicNavMobile from "./TopicNavMobile"
-import Explorer from "../functional/Explorer"
+import TopicNavMobile from "../functional/explorer/ItemNavMobile"
+import Explorer from "../functional/explorer/Explorer"
 
 export default function TopicExplorer(){
   
@@ -16,7 +16,9 @@ export default function TopicExplorer(){
   const { topic } = useParams()
 
   const [headings, setHeadings] = useState(null)
-  const headingsAndFamilies = getHeadingsAndFamilies(headings)
+  const headingsAndFamilies = useMemo(() => {
+    return getHeadingsAndFamilies(headings)
+  }, [headings])
 
   function getHeadingsAndFamilies(headings){
     if(headings){
@@ -47,7 +49,11 @@ export default function TopicExplorer(){
       {/*  ! screen &&  <TopicNav headings={headingsAndFamilies} /> */}
       {/* screen && <TopicNavMobile /> */}
 
-      <Explorer></Explorer>
+      <Explorer items={headingsAndFamilies} isMobile={screen}>
+        <p>
+          This is a paragraph to test how the layout of content in this section will work. The purpose of this paragraph is to take up space in the main content section of the mobile topic explorer so that when I add the mobile menu in I can see how its presence affects the rest of the content such as this content right here.
+        </p>
+      </Explorer>
     </div>
   )
 }

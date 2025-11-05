@@ -1,9 +1,10 @@
 import { NavLink } from "react-router";
 
-export default function TopicNav({ headings }){
+export default function ItemNav({ items }){
+  
   return (
-    <div className="w-50 bg-space-200 border-r border-space-300 p-[var(--sd-gap-mid)]">
-      {headings && headings.map((heading, id) => (
+    <div className="w-50 h-full bg-space-200 border-r border-space-300 p-[var(--sd-gap-mid)]">
+      {items && items.map((heading, id) => (
         <div key={id}>
           {id !== 0 && heading.type === 'family' ? 
             <div className="h-[var(--sd-gap-mid)] flex flex-col justify-center my-4">
