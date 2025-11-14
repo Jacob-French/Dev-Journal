@@ -6,12 +6,14 @@ const apiContext = createContext()
 //routes
 const PAGES = 'http://localhost:1337/api/pages'
 const TOPICS = 'http://localhost:1337/api/topics?sort[0]=title:asc&populate[0]=icon'
+const CONTENT = 'http://localhost:1337/api/contents'
 
 export function ApiProvider({children}){
 
   const { request: requestPages, loading: loadingPages, error: pagesError, cancel: cancelPages } = useAxios()
   const { request: requestTopics, loading: loadingTopics, error: topicsError, cancel: cancelTopics } = useAxios()
   const { request: requestHeadings, loading: loadingHeadings, error: headingsError, cancel: cancelHeadings } = useAxios()
+  const { request: requestContent, loading: loadingContent, error: contentError, cancel: cancelContent } = useAxios()
   
   const api = {
     getPages: async function(){
@@ -42,7 +44,18 @@ export function ApiProvider({children}){
       else{
         return null
       }
-    } 
+    },
+    //PARAMETERS: ("route") RETURNS: Content object with a given route
+    getContent: async function(route){
+      const query = `http://localhost:1337/api/contents?filters[route][$eq]=${route}&populate=*`
+      const response = await requestContent(query, {method: 'GET'})
+      if(response){
+        return response.data[0]
+      }
+      else{
+        return null
+      }
+    }
   }
 
   return(

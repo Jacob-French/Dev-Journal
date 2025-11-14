@@ -430,27 +430,32 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
-  collectionName: 'globals';
+export interface ApiContentContent extends Struct.CollectionTypeSchema {
+  collectionName: 'contents';
   info: {
-    displayName: 'Global';
-    pluralName: 'globals';
-    singularName: 'global';
+    displayName: 'Content';
+    pluralName: 'contents';
+    singularName: 'content';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
+    content_zone: Schema.Attribute.DynamicZone<
+      ['content-blocks.text', 'content-blocks.title']
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::global.global'
+      'api::content.content'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    route: Schema.Attribute.String;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1055,7 +1060,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::global.global': ApiGlobalGlobal;
+      'api::content.content': ApiContentContent;
       'api::heading.heading': ApiHeadingHeading;
       'api::page.page': ApiPagePage;
       'api::topic.topic': ApiTopicTopic;
