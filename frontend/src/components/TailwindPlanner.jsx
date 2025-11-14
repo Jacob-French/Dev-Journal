@@ -14,6 +14,7 @@ export default function TailwindPlanner(){
         <h1 className="font-[Outfit] text-lg font-normal">The quick brown fox</h1>
         <h1 className="font-league-spartan text-lg font-normal">The quick brown fox</h1>
         <h1 className="font-exo-2 text-lg font-normal">The quick brown fox gG</h1>
+        <h1 className="font-[Audiowide] text-xl font-normal">Gravity is gratitude</h1>
       </div>
       <div className="flex flex-col items-center mt-10">
         <h1 className="font-[Montserrat] text-xl font-semibold">The quick brown fox</h1>
@@ -24,6 +25,7 @@ export default function TailwindPlanner(){
         <h1 className="font-[Outfit] text-xl font-semibold">The quick brown fox</h1>
         <h1 className="font-league-spartan text-xl font-semibold">The quick brown fox</h1>
         <h1 className="font-exo-2 text-xl font-semibold">Gravity is gratitude</h1>
+        <h1 className="font-[Audiowide] text-xl font-semibold">Gravity is gratitude</h1>
       </div>
     </div>
     <div className="p-10">

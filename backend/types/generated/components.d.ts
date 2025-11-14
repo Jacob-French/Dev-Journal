@@ -1,5 +1,17 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface ContentBlocksCode extends Struct.ComponentSchema {
+  collectionName: 'components_content_blocks_codes';
+  info: {
+    displayName: 'code';
+    icon: 'code';
+  };
+  attributes: {
+    code: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface ContentBlocksText extends Struct.ComponentSchema {
   collectionName: 'components_content_blocks_texts';
   info: {
@@ -24,6 +36,7 @@ export interface ContentBlocksTitle extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'content-blocks.code': ContentBlocksCode;
       'content-blocks.text': ContentBlocksText;
       'content-blocks.title': ContentBlocksTitle;
     }

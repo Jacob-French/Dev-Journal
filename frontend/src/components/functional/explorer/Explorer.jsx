@@ -50,7 +50,7 @@ export default function Explorer({ items, isMobile, children }){
   }, [items])
 
   return (
-    <div className="border border-pink-300 w-full h-full flex flex-row justify-start">
+    <div className="border-pink-300 w-full h-full flex flex-row justify-start">
       {! isMobile && Array.isArray(items) && <ItemNav items={items} title={title}>{children}</ItemNav>}
       {isMobile && Array.isArray(items) && <ItemNavMobile items={items} title={title} >{children}</ItemNavMobile>}
       <ContentPanel />

@@ -21,7 +21,7 @@ export function JaLogo(){
     <NavLink to='/journal'>
       <h1>
         <span className={`
-          font-exo-2 text-xl font-normal text-gray-100
+          font-[Audiowide] text-xl font-normal text-gray-100
         `}><span className="font-semibold text-pink-400"> &lt; &gt; </span> Dev Journal</span>
       </h1>
     </NavLink>

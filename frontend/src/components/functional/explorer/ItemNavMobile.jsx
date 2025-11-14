@@ -28,7 +28,7 @@ export default function ItemNavMobile({ items, title, children }){
   }
   
   return(
-    <div className="item-nav-mobile relative border border-pink-300 box-border w-12 h-full">
+    <div className="item-nav-mobile relative border border-pink-300 box-border w-15 h-full">
       <div className={hidden ? hiddenPanelClass : visiblePanelClass}>
         <button 
           className={
@@ -70,8 +70,8 @@ export default function ItemNavMobile({ items, title, children }){
                   <div className="flex flex-row justify-start items-center">
                     <h3 
                       className={`
-                      font-[Poppins] text-space-800 text-sm
-                      border border-transparent px-4 py-1 my-1 rounded-xl box-content cursor-pointer
+                      font-[Poppins] text-space-800 text-sm w-full
+                      border border-transparent px-4 py-1 my-1 mx-2 rounded-xl box-content cursor-pointer
                       hover:border hover:border-space-400 hover:bg-space-300 hover:shadow-md group-[.active]:text-space-900
                       `}>{heading.content.title}
                     </h3>

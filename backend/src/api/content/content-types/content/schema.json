@@ -21,7 +21,8 @@
       "type": "dynamiczone",
       "components": [
         "content-blocks.text",
-        "content-blocks.title"
+        "content-blocks.title",
+        "content-blocks.code"
       ]
     }
   }

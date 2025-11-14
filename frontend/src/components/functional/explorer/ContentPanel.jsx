@@ -51,7 +51,7 @@ export default function ContentPanel(){
   }, [location])
 
   return (
-    <div className="border border-sky-600 w-full h-full">
+    <div className="border border-sky-600 w-full h-full px-5 overflow-y-auto scrollbar-dark">
       {content && content.map((item, id) => (
         <div key={id}>
           {item}

@@ -45,7 +45,7 @@ export default function TopicExplorer(){
   }, [topic])
   
   return (
-    <div className="text-space-600 border-fuchsia-400 h-full">
+    <div className="text-space-600 border-emerald-400 h-full">
       {/*  ! screen &&  <TopicNav headings={headingsAndFamilies} /> */}
       {/* screen && <TopicNavMobile /> */}
 

@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_content_blocks_codes",
+  "info": {
+    "displayName": "code",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "code": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}
