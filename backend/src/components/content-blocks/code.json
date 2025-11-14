@@ -6,11 +6,24 @@
   },
   "options": {},
   "attributes": {
+    "language": {
+      "type": "enumeration",
+      "enum": [
+        "css",
+        "javascript",
+        "json",
+        "jsx",
+        "markup",
+        "php",
+        "python",
+        "typescript"
+      ]
+    },
     "title": {
       "type": "string"
     },
     "code": {
-      "type": "text"
+      "type": "richtext"
     }
   },
   "config": {}

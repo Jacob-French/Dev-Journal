@@ -7,7 +7,19 @@ export interface ContentBlocksCode extends Struct.ComponentSchema {
     icon: 'code';
   };
   attributes: {
-    code: Schema.Attribute.Text;
+    code: Schema.Attribute.RichText;
+    language: Schema.Attribute.Enumeration<
+      [
+        'css',
+        'javascript',
+        'json',
+        'jsx',
+        'markup',
+        'php',
+        'python',
+        'typescript',
+      ]
+    >;
     title: Schema.Attribute.String;
   };
 }

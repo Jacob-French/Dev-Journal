@@ -2,7 +2,7 @@ import { useLocation } from "react-router"
 import { useApi } from "../../../context/ApiContext"
 import { useEffect, useState } from "react"
 import ReactMarkdown from 'react-markdown'
-import { ContentText, ContentTitle } from "./DynamicContent"
+import { ContentCode, ContentText, ContentTitle } from "./DynamicContent"
 
 export default function ContentPanel(){
 
@@ -31,6 +31,8 @@ export default function ContentPanel(){
         case "content-blocks.text":
           contentArray.push(<ContentText content={item} />)
           break
+        case "content-blocks.code":
+          contentArray.push(<ContentCode content={item} />)
       }
     })
 
@@ -41,6 +43,7 @@ export default function ContentPanel(){
     const route = getContentRoute()
     
     api.getContent(route).then(response => {
+      console.log("response: ", response)
       if(response && 'content_zone' in response){
         setContent(buildContentComponents(response.content_zone))
       }
@@ -57,6 +60,7 @@ export default function ContentPanel(){
           {item}
         </div>
       ))}
+      <div className="h-10"></div>
     </div>
   )
 }
