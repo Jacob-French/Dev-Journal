@@ -2,6 +2,7 @@ import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import './DynamicContent.css'
+import { CopyIcon } from '../../items/Icons';
 
 export function ContentTitle({ content }){
 
@@ -25,15 +26,24 @@ export function ContentText({ content }){
 
 export function ContentCode({ content }){
 
-  const codeString = "var test = 'jacob is amazing';"
-  console.log("title: ", content.title)
-  console.log("language: ", content.language)
+  async function copyToClipboard(text) {
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+    }
+  }
 
   return (
     <div className={`
       border-1 border-space-300 text-xl bg-space-200 rounded-xl
-      mx-10 my-10
+      mx-10 my-10 relative
     `}>
+      <div className="absolute w-12 h-12 top-0 right-0 flex flex-col justify-center items-center">
+        <button className="cursor-pointer" onClick={() => {copyToClipboard(content.code)}}>
+          <CopyIcon className="text-space-700 hover:text-space-800 w-5 h-5" />
+        </button>
+      </div>
       {content.title && (
       <>
         <span className="text-base text-space-800 font-light font-[Poppins] px-5 py-3 block">{content.title}</span>
@@ -56,14 +66,3 @@ export function ContentCode({ content }){
     </div>
   )
 }
-
-/*
-css
-javascript
-json
-jsx
-markup
-php
-python
-typescript
-*/

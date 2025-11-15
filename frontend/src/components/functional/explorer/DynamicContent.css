@@ -26,3 +26,8 @@
   padding-top: var(--mkd-gap);
   padding-bottom: var(--mkd-gap);
 }
+
+.markdown a{
+  color: var(--color-highlight-100);
+  font-weight: 600;
+}

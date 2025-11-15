@@ -35,6 +35,8 @@ html, body{
   --color-space-900: oklch(0.95 0 0); /* bright text */
 
   --color-theme-100: oklch(0.6672 0.1802 1.69);
+  --color-highlight-100: oklch(41% 0.159 10.272);
+  --color-highlight-200: oklch(51.4% 0.222 16.935);
 }
 
 .scrollbar-dark::-webkit-scrollbar {
