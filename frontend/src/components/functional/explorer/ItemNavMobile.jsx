@@ -28,7 +28,7 @@ export default function ItemNavMobile({ items, title, children }){
   }
   
   return(
-    <div className="item-nav-mobile relative border border-pink-300 box-border w-15 h-full">
+    <div className="item-nav-mobile relative box-border w-15 h-full z-100">
       <div className={hidden ? hiddenPanelClass : visiblePanelClass}>
         <button 
           className={

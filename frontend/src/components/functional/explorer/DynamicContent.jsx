@@ -37,7 +37,7 @@ export function ContentCode({ content }){
   return (
     <div className={`
       border-1 border-space-300 text-xl bg-space-200 rounded-xl
-      mx-10 my-10 relative
+      my-10 relative
     `}>
       <div className="absolute w-12 h-12 top-0 right-0 flex flex-col justify-center items-center">
         <button className="cursor-pointer" onClick={() => {copyToClipboard(content.code)}}>

@@ -14,6 +14,7 @@ export function ApiProvider({children}){
   const { request: requestTopics, loading: loadingTopics, error: topicsError, cancel: cancelTopics } = useAxios()
   const { request: requestHeadings, loading: loadingHeadings, error: headingsError, cancel: cancelHeadings } = useAxios()
   const { request: requestContent, loading: loadingContent, error: contentError, cancel: cancelContent } = useAxios()
+  const { request: requestTips, loading: loadingTips, error: tipsError, cancel: cancelTips } = useAxios()
   
   const api = {
     getPages: async function(){
@@ -51,6 +52,16 @@ export function ApiProvider({children}){
       const response = await requestContent(query, {method: 'GET'})
       if(response){
         return response.data[0]
+      }
+      else{
+        return null
+      }
+    },
+    getTips: async function(topic){
+      const query = `http://localhost:1337/api/tips?filters[topic][$eq]=${topic}&populate=*`
+      const response = await requestTips(query, {method: 'GET'})
+      if(response){
+        return response.data
       }
       else{
         return null

@@ -3,8 +3,9 @@ import { useApi } from "../../../context/ApiContext"
 import { useEffect, useState } from "react"
 import ReactMarkdown from 'react-markdown'
 import { ContentCode, ContentText, ContentTitle } from "./DynamicContent"
+import TipsPanel from "./TipsPanel"
 
-export default function ContentPanel(){
+export default function ContentPanel({ title }){
 
   const api = useApi()
   const location = useLocation()
@@ -43,7 +44,6 @@ export default function ContentPanel(){
     const route = getContentRoute()
     
     api.getContent(route).then(response => {
-      console.log("response: ", response)
       if(response && 'content_zone' in response){
         setContent(buildContentComponents(response.content_zone))
       }
@@ -54,13 +54,22 @@ export default function ContentPanel(){
   }, [location])
 
   return (
-    <div className="border border-sky-600 w-full h-full px-5 overflow-y-auto scrollbar-dark">
-      {content && content.map((item, id) => (
-        <div key={id}>
-          {item}
-        </div>
-      ))}
-      <div className="h-10"></div>
+    <div className={`
+      relative w-full h-full
+      border-sky-600 flex flex-row justify-start overflow-y-auto scrollbar-dark
+    `}>
+      <div className="pl-10 pr-10 xl:pr-5">
+        {content && content.map((item, id) => (
+          <div key={id}>
+            {item}
+          </div>
+        ))}
+        <div className="h-10"></div>
+      </div>
+      <div className="w-90 shrink-0 h-full hidden relative xl:block"></div>
+      <div className="w-90 bottom-0 top-18 right-3 fixed p-5 hidden xl:block">
+        <TipsPanel title={title} />
+      </div>
     </div>
   )
 }

@@ -30,7 +30,7 @@ function App() {
     <div className="bg-space-100 border-amber-300 h-screen flex flex-col">
       {pages && <Headbar pages={pages} />}
 
-      <div className="border-pink-400 border-2 border flex-1 min-h-0">
+      <div className="border-pink-400 flex-1 min-h-0">
         <Routes>
           <Route path="/journal" element={<TopicManager topics={topics}/>} />
           <Route path="/journal/:topic/*" element={<TopicExplorer />} /> 
