@@ -1,15 +1,24 @@
 import React, { useState } from "react";
 import { Circle, Line, MinimizeIcon, MoreIcon, TipsIcon } from "../../items/Icons";
 import { NavLink } from "react-router";
-import FlexRow, { FlexRowSmall } from "./MobileNavComponents";
+import FlexRow, { FlexRowSmall, TipsBar } from "./MobileNavComponents";
 
-export default function ItemNavTipsMobile({ items, title }){
+export default function ItemNavTipsMobile({ items, title, tips }){
 
   const [showNav, setShowNav] = useState(true)
   const [showTips, setShowTips] = useState(false)
   
+  const tipsButtonActiveClass = ""
+
   function toggleNav(){
+    if(showNav){
+      setShowTips(false)
+    }
     setShowNav(prev => !prev)
+  }
+
+  function toggleTips(){
+    setShowTips(prev => !prev)
   }
 
   return (
@@ -18,18 +27,21 @@ export default function ItemNavTipsMobile({ items, title }){
       flex flex-col justify-start
       bg-space-200 shadow-sm shadow-gray-950
       transition-transform duration-500
-      border-2 border-red-300
       ${!showNav && "-translate-x-50"}
     `}>
       {/* Head Bar Container */}
-      <div className="w-full flex flex-row justify-start bg-space-200 shadow-[0_1px_3px_0_rgba(0,0,0,0.3)]">
+      <div className="w-full flex flex-row justify-start bg-space-200 shadow-[0_1px_3px_0_rgba(0,0,0,0.3)] z-300">
         <div className="px-3 flex-1 flex flex-col relative justify-start">
           <FlexRow className="flex flex-row justify-start">
             <button className={`
               font-league-spartan uppercase text-md text-[var(--color-theme-100)] mr-auto
             `}>{title}</button>
-            <button className="">
-              <TipsIcon className="w-5 h-5" />
+            <button className="" onClick={toggleTips}>
+              <TipsIcon className={`
+                w-7 h-7 p-1 cursor-pointer
+                hover:border hover:rounded-md hover:bg-space-300 hover:border-space-400
+                ${showTips ? "border rounded-md bg-space-300 border-space-400 text-space-800" : ""}
+              `} />
             </button>
           </FlexRow>
         </div>
@@ -43,15 +55,13 @@ export default function ItemNavTipsMobile({ items, title }){
         </div>
       </div>
 
-      <div className="w-full flex-1 border-2 border-green-300 relative">
+      <div className="w-full flex-1 relative">
 
-        <div className="absolute left-0 right-0 top-0 bottom-0 bg-space-200 z-200">
-
-        </div>
+        <TipsBar tips={tips} showTips={showTips} />
       
-        <div className="absolute left-0 right-0 top-0 bottom-0 flex flex-row justify-start border-2 border-pink-300">
+        <div className="absolute left-0 right-0 top-0 bottom-0 flex flex-row justify-start">
           <div className="px-3 flex-1 flex flex-col relative justify-start">
-            {!showTips && items && items.map((item, id) => (
+            {items && items.map((item, id) => (
               <React.Fragment key={id}>
                 {
                   id !== 0 && item.type === 'family' ? 
@@ -88,7 +98,7 @@ export default function ItemNavTipsMobile({ items, title }){
           </div>
           <div className="border-l-1 border-space-300 w-10 flex flex-col justify-start">
 
-            {!showTips && items && items.map((item, id) => (
+            {items && items.map((item, id) => (
               <React.Fragment key={id}>
                 {
                   id !== 0 && item.type === 'family' ? 

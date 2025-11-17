@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown'
 import { ContentCode, ContentText, ContentTitle } from "./DynamicContent"
 import TipsPanel from "./TipsPanel"
 
-export default function ContentPanel({ title }){
+export default function ContentPanel({ title, tips }){
 
   const api = useApi()
   const location = useLocation()
@@ -68,7 +68,7 @@ export default function ContentPanel({ title }){
       </div>
       <div className="w-90 shrink-0 h-full hidden relative xl:block"></div>
       <div className="w-90 bottom-0 top-18 right-3 fixed p-5 hidden xl:block">
-        <TipsPanel title={title} />
+        <TipsPanel tips={tips} />
       </div>
     </div>
   )
