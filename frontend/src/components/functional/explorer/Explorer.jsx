@@ -22,13 +22,17 @@ import { useNavigate } from "react-router";
 import ContentPanel from "./ContentPanel";
 import ItemNav from "./ItemNav";
 import ItemNavMobile from "./ItemNavMobile";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import ItemNavTipsMobile from "../mobileNav/ItemNavTipsMobile";
+import { useApi } from "../../../context/ApiContext";
 
 
-export default function Explorer({ items, isMobile, children }){
+export default function Explorer({ items, isMobile }){
 
+  const api = useApi()
   const navigate = useNavigate()
   const title = getTopicTitle()
+  const [tips, setTips] = useState(null)
 
   function selectFirstHeading(){
     for(const item of items){
@@ -48,12 +52,19 @@ export default function Explorer({ items, isMobile, children }){
   useEffect(() => {
     items && selectFirstHeading()
   }, [items])
+    
+  useEffect(() => {
+    title && api.getTips(title).then(response => {
+      console.log("tips: ", response)
+      setTips(response)
+    })
+  }, [title])
 
   return (
-    <div className="border-pink-300 w-full h-full flex flex-row justify-start">
-      {! isMobile && Array.isArray(items) && <ItemNav items={items} title={title}>{children}</ItemNav>}
-      {isMobile && Array.isArray(items) && <ItemNavMobile items={items} title={title} >{children}</ItemNavMobile>}
-      <ContentPanel title={title} />
+    <div className="border-pink-300 w-full h-full flex flex-row justify-start relative">
+      {! isMobile && Array.isArray(items) && <ItemNav items={items} title={title}></ItemNav>}
+      {isMobile && Array.isArray(items) && <ItemNavTipsMobile items={items} title={title} tips={tips} ></ItemNavTipsMobile>}
+      <ContentPanel title={title} tips={tips} />
     </div>
   )
 }
