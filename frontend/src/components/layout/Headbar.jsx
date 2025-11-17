@@ -20,8 +20,10 @@ export default function Headbar({ pages }){
   }
 
   return (
-    <div>
-      <div className="flex flex-row justify-start px-10 border-b border-space-300 py-[var(--sd-gap-small)] md:py-[var(--sd-gap-mid)]">
+    <div className="z-300">
+      <div className={`
+        flex flex-row justify-start px-10 border-b border-space-300 py-[var(--sd-gap-small)] md:py-[var(--sd-gap-mid)]
+      `}>
         <div className="w-50 flex flex-col justify-center">
           <JaLogo />
         </div>

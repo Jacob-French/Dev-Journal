@@ -23,6 +23,7 @@ import ContentPanel from "./ContentPanel";
 import ItemNav from "./ItemNav";
 import ItemNavMobile from "./ItemNavMobile";
 import { useEffect } from "react";
+import ItemNavTipsMobile from "../mobileNav/ItemNavTipsMobile";
 
 
 export default function Explorer({ items, isMobile, children }){
@@ -50,9 +51,9 @@ export default function Explorer({ items, isMobile, children }){
   }, [items])
 
   return (
-    <div className="border-pink-300 w-full h-full flex flex-row justify-start">
-      {! isMobile && Array.isArray(items) && <ItemNav items={items} title={title}>{children}</ItemNav>}
-      {isMobile && Array.isArray(items) && <ItemNavMobile items={items} title={title} >{children}</ItemNavMobile>}
+    <div className="border-pink-300 w-full h-full flex flex-row justify-start relative">
+      {! isMobile && Array.isArray(items) && <ItemNav items={items} title={title}></ItemNav>}
+      {isMobile && Array.isArray(items) && <ItemNavTipsMobile items={items} title={title} ></ItemNavTipsMobile>}
       <ContentPanel title={title} />
     </div>
   )

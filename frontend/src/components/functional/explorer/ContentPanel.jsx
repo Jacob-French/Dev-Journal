@@ -58,7 +58,7 @@ export default function ContentPanel({ title }){
       relative w-full h-full
       border-sky-600 flex flex-row justify-start overflow-y-auto scrollbar-dark
     `}>
-      <div className="pl-10 pr-10 xl:pr-5">
+      <div className="pl-20 pr-10 md:pl-10 xl:pr-5">
         {content && content.map((item, id) => (
           <div key={id}>
             {item}
