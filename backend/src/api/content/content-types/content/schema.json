@@ -22,7 +22,9 @@
       "components": [
         "content-blocks.text",
         "content-blocks.title",
-        "content-blocks.code"
+        "content-blocks.code",
+        "content-blocks.image",
+        "content-blocks.image-and-text"
       ]
     }
   }

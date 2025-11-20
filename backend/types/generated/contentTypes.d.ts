@@ -442,7 +442,13 @@ export interface ApiContentContent extends Struct.CollectionTypeSchema {
   };
   attributes: {
     content_zone: Schema.Attribute.DynamicZone<
-      ['content-blocks.text', 'content-blocks.title', 'content-blocks.code']
+      [
+        'content-blocks.text',
+        'content-blocks.title',
+        'content-blocks.code',
+        'content-blocks.image',
+        'content-blocks.image-and-text',
+      ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
