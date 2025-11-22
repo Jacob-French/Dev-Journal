@@ -1,17 +1,15 @@
 {
-  "collectionName": "components_content_blocks_texts",
+  "collectionName": "components_content_blocks_code_lines",
   "info": {
-    "displayName": "text"
+    "displayName": "code lines",
+    "icon": "code"
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
     "gap": {
       "type": "boolean"
     },
-    "markdown": {
+    "code": {
       "type": "richtext"
     }
   },

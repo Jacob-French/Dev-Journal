@@ -448,6 +448,8 @@ export interface ApiContentContent extends Struct.CollectionTypeSchema {
         'content-blocks.code',
         'content-blocks.image',
         'content-blocks.image-and-text',
+        'content-blocks.code-lines',
+        'content-blocks.line',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;

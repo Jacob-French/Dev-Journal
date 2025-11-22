@@ -8,8 +8,12 @@ export interface ContentBlocksCode extends Struct.ComponentSchema {
   };
   attributes: {
     code: Schema.Attribute.RichText;
+    comment: Schema.Attribute.RichText;
+    details: Schema.Attribute.RichText;
+    gap: Schema.Attribute.Boolean;
     language: Schema.Attribute.Enumeration<
       [
+        'bash',
         'css',
         'javascript',
         'json',
@@ -24,6 +28,18 @@ export interface ContentBlocksCode extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentBlocksCodeLines extends Struct.ComponentSchema {
+  collectionName: 'components_content_blocks_code_lines';
+  info: {
+    displayName: 'code lines';
+    icon: 'code';
+  };
+  attributes: {
+    code: Schema.Attribute.RichText;
+    gap: Schema.Attribute.Boolean;
+  };
+}
+
 export interface ContentBlocksImage extends Struct.ComponentSchema {
   collectionName: 'components_content_blocks_images';
   info: {
@@ -34,6 +50,7 @@ export interface ContentBlocksImage extends Struct.ComponentSchema {
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
+    shadow: Schema.Attribute.Boolean;
     title: Schema.Attribute.String;
   };
 }
@@ -54,12 +71,21 @@ export interface ContentBlocksImageAndText extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentBlocksLine extends Struct.ComponentSchema {
+  collectionName: 'components_content_blocks_lines';
+  info: {
+    displayName: 'line';
+  };
+  attributes: {};
+}
+
 export interface ContentBlocksText extends Struct.ComponentSchema {
   collectionName: 'components_content_blocks_texts';
   info: {
     displayName: 'text';
   };
   attributes: {
+    gap: Schema.Attribute.Boolean;
     markdown: Schema.Attribute.RichText;
     title: Schema.Attribute.String;
   };
@@ -79,8 +105,10 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'content-blocks.code': ContentBlocksCode;
+      'content-blocks.code-lines': ContentBlocksCodeLines;
       'content-blocks.image': ContentBlocksImage;
       'content-blocks.image-and-text': ContentBlocksImageAndText;
+      'content-blocks.line': ContentBlocksLine;
       'content-blocks.text': ContentBlocksText;
       'content-blocks.title': ContentBlocksTitle;
     }

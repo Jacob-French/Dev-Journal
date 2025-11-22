@@ -9,6 +9,7 @@
     "language": {
       "type": "enumeration",
       "enum": [
+        "bash",
         "css",
         "javascript",
         "json",
@@ -24,6 +25,15 @@
     },
     "code": {
       "type": "richtext"
+    },
+    "details": {
+      "type": "richtext"
+    },
+    "comment": {
+      "type": "richtext"
+    },
+    "gap": {
+      "type": "boolean"
     }
   },
   "config": {}
